@@ -13,4 +13,12 @@ import java.util.List;
 public interface InventoryRepository extends JpaRepository<Product, Integer> {
     @Query(value = "SELECT * FROM Products WHERE id in (:productIds)", nativeQuery = true)
     List<Product> findProductDetailsByCustomerIdAndOrderId(@Param("productIds") List<Integer> productIds);
+
+    @Query(value = "SELECT * FROM Products WHERE categoryid in (:categoryIds)", nativeQuery = true)
+    List<Product> findProductDetailsByCategoryId(@Param("categoryIds") List<Integer> categoryIds);
+
+    @Query(value = "SELECT * FROM Products WHERE sku = ?1", nativeQuery = true)
+    Product findAvailabilityOfProduct(String skuId);
 }
+
+

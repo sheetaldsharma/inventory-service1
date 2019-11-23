@@ -21,4 +21,34 @@ public class InventoryService{
         return inventoryRepository.findProductDetailsByCustomerIdAndOrderId(productIds);
     }
 
+    public List<Product> findProductDetailsByCategoryId(List<Integer> categoryIds)
+    {
+        return inventoryRepository.findProductDetailsByCustomerIdAndOrderId(categoryIds);
+    }
+
+    public Product findAvailabilityOfProduct(String skuId)
+    {
+        return inventoryRepository.findAvailabilityOfProduct(skuId);
+    }
+
+    public List<Product> fetchAllProducts()
+    {
+        return inventoryRepository.findAll();
+    }
+
+    public void removeProduct(Product product)
+    {
+        inventoryRepository.delete(product);
+    }
+
+    public Product addProduct(Product product)
+    {
+        return inventoryRepository.save(product);
+    }
+
+    public Product getProductDetails(Integer productId)
+    {
+        return inventoryRepository.getOne(productId);
+    }
+
 }
