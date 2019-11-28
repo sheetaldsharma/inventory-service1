@@ -68,4 +68,24 @@ public class Product {
     @Column(name = "picture")
     @NonNull
     private String picture;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", sku='" + sku + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", brandName='" + brandName + '\'' +
+                ", supplierId=" + supplierId +
+                ", categoryId=" + categoryId +
+                ", quantityPerUnit=" + quantityPerUnit +
+                ", unitPrice=" + unitPrice +
+                ", size='" + size + '\'' +
+                ", color='" + color + '\'' +
+                ", discount=" + discount +
+                ", discountAvailable=" + discountAvailable +
+                ", picture='" + picture + '\'' +
+                '}';
+    }
 }

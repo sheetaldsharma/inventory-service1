@@ -70,6 +70,14 @@ public class InventoryController {
 
     }
 
+    @PutMapping(path = "/{id}/updateQuantity")
+    public Product updateProduct(@PathVariable("id") Integer id, @RequestBody Product product)
+    {
+        System.out.println("+++++++++++++++++++++ in inven ++++++++++" +product.toString());
+
+        return inventoryService.updateProduct(product);
+    }
+
     @PostMapping(path = "/add")
     public Product addProduct(@RequestBody Product product)
     {

@@ -52,4 +52,10 @@ public class InventoryService{
         return inventoryRepository.getOne(productId);
     }
 
+    public Product updateProduct(Product product)
+    {
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ "+product.toString());
+        return inventoryRepository.save(product);
+    }
+
 }
