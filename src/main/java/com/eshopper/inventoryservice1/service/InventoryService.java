@@ -18,6 +18,7 @@ public class InventoryService{
 
     public List<Product> findProductDetailsByCustomerIdAndOrderId(List<Integer> productIds)
     {
+        System.out.println("*******************findProductDetailsByCustomerIdAndOrderId"+productIds);
         return inventoryRepository.findProductDetailsByCustomerIdAndOrderId(productIds);
     }
 
