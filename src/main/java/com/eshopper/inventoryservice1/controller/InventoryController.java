@@ -78,6 +78,14 @@ public class InventoryController {
         return inventoryService.updateProduct(product);
     }
 
+
+    @PutMapping(path = "/multiple/updateQuantity")
+    public List<Product> updateProduct(@RequestBody  List<Product> productList)
+    {
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+        return inventoryService.updateProductQuantity(productList);
+    }
+
     @PostMapping(path = "/add")
     public Product addProduct(@RequestBody Product product)
     {

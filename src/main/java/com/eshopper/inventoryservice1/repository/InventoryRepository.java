@@ -19,6 +19,9 @@ public interface InventoryRepository extends JpaRepository<Product, Integer> {
 
     @Query(value = "SELECT * FROM Products WHERE sku = ?1", nativeQuery = true)
     Product findAvailabilityOfProduct(String skuId);
+
+    @Query(value = "UPDATE Products SET quantityperunit = (quantityperunit - 1) FROM Products WHERE sku = ?1", nativeQuery = true)
+    Product updateProductQuantity(String skuId);
 }
 
 

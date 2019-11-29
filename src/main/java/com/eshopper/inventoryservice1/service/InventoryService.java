@@ -58,4 +58,11 @@ public class InventoryService{
         return inventoryRepository.save(product);
     }
 
+
+    public List<Product> updateProductQuantity(List<Product> productList)
+    {
+
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ "+productList.size());
+        return inventoryRepository.saveAll(productList);
+    }
 }
