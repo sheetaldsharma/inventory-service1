@@ -83,7 +83,7 @@ public class InventoryController {
 
 
     @PutMapping(path = "/multiple/updateQuantity")
-    public String updateProduct(@RequestBody  List<ProductQuantity> productQuantityList)
+    public String updateProductQuantity(@RequestBody  List<ProductQuantity> productQuantityList)
     {
         System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+productQuantityList.toString());
         inventoryService.updateProductQuantity(productQuantityList);
