@@ -22,7 +22,7 @@ public class InventoryListener {
     private InventoryService inventoryService;
 
 
-    @KafkaListener(topics = "ORDER_PRODUCT_DETAILS")
+    //@KafkaListener(topics = "ORDER_PRODUCT_DETAILS")
     public void orderProductDetailsListener(String message) throws IOException {
         System.out.println("==================== inventoryService: " + message);
 //        ObjectMapper mapper = new ObjectMapper();

@@ -2,6 +2,7 @@ package com.eshopper.inventoryservice1.controller;
 
 import com.eshopper.inventoryservice1.model.Product;
 //import com.eshopper.inventoryservice1.service.InventoryService;
+import com.eshopper.inventoryservice1.model.ProductQuantity;
 import com.eshopper.inventoryservice1.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,8 @@ public class InventoryController {
     @GetMapping(path = "/all")
     public List<Product> fetchAllProducts()
     {
+
+        System.out.println("+++++++++++++++++++++ fetchAllProducts ");
         return inventoryService.fetchAllProducts();
     }
 
@@ -80,10 +83,11 @@ public class InventoryController {
 
 
     @PutMapping(path = "/multiple/updateQuantity")
-    public List<Product> updateProduct(@RequestBody  List<Product> productList)
+    public String updateProduct(@RequestBody  List<ProductQuantity> productQuantityList)
     {
-        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-        return inventoryService.updateProductQuantity(productList);
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+productQuantityList.toString());
+        inventoryService.updateProductQuantity(productQuantityList);
+        return "UpdatedProductQuantity";
     }
 
     @PostMapping(path = "/add")
