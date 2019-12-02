@@ -55,5 +55,6 @@ public class InventoryListener {
 //        System.out.println("_________________________________________ Consumed JSON Message: " + userDto);
 //    }
 
+
 }
 

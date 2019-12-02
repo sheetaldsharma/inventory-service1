@@ -5,6 +5,7 @@ import com.eshopper.inventoryservice1.model.Product;
 import com.eshopper.inventoryservice1.model.ProductQuantity;
 import com.eshopper.inventoryservice1.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,6 +22,12 @@ public class InventoryController {
 
     @Autowired
     RestTemplate restTemplate;
+
+//    @Autowired
+//    KafkaTemplate kafkaTemplateString;
+
+    @Autowired
+    private KafkaTemplate<String, String> kafkaTemplateString;
 
     @GetMapping(path = "/all")
     public List<Product> fetchAllProducts()
@@ -87,6 +94,8 @@ public class InventoryController {
     {
         System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+productQuantityList.toString());
         inventoryService.updateProductQuantity(productQuantityList);
+        kafkaTemplateString.send("SEND_ORDER_PLACED_MAIL", "send mail");
+        System.out.println("-----------------------------------after kafka call");
         return "UpdatedProductQuantity";
     }
 
