@@ -78,5 +78,6 @@ public class InventoryService{
 //        Integer unit = 30;
 //        productQuantityListList.forEach(productQuantity -> inventoryRepository.updateEachProductQuantity(productQuantity.getQuantity(), productQuantity.getProductId()));
         inventoryRepository.updateEachProductQuantity();
+        inventoryProductQuantityRepository.deleteAll();
     }
 }
